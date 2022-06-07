@@ -1,0 +1,61 @@
+﻿@model List<u20679483_hw3.Models.FileModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<h1>Documents of any file type</h1>
+<h3>.........."Files/" folder</h3>
+<br />
+<br />
+<div class="body-content" style="background-color:lightcyan">
+    <br />
+    <br />
+
+    <table class="table  card">
+        <thead>
+            <tr>
+                <th>
+                    File Name
+                </th>
+                <th>
+                    Download Option
+                </th>
+                <th>
+                    Delete Option
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+           @try
+           {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Download", "Download", new { id = item.id }, new { @class = "btn btn-success" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+           }
+            catch { }
+        </tbody>
+
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+

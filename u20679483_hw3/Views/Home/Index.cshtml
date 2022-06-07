@@ -1,0 +1,92 @@
+﻿<style>
+    .flex-container {
+        display: flex;
+    }
+
+    .flex-child {
+        flex: 1;
+    }
+
+        .flex-child:first-child {
+            margin-right: 20px;
+        }
+</style>
+<div>
+    <h1>myMedia</h1>
+    <h3>Homework Assignmet3 by Lokusa Thwala</h3>
+    <div style="background-color:lightcyan">
+        <div class="flex-container">
+
+
+            <div class="flex-child magenta">
+                <div style="margin-left:5%">
+                    <h3>Description</h3>
+                    <p>
+                        This assignment is all about media uploading system. It consist of 4 pages which are the Home page,File page,Images page,Video page a About me page.Below is how the program runs, basically the functioality of the whole project.This project is strictly on uses HTML, Javascrpt,Responsive web design,CSS and MVC project using c#.
+                    </p>
+                     The home page consist of brief description about the project then it has a form which with 3 radio buttos that the user uses to selct the media file he or she wants to upload and also a choose  file button that allows the user to choose file from their desktop and uploead to the project. Once the user has selcted the type of file the wat to uploead i.e image,video or document 
+                    <p>
+                         the user will then need to submit the media file using the submit button. The user will the head to the navigation bar and click on the type of file they picked wheter it is video,image or document. The user will  see the file they have upload on under view.
+                    </p>
+                    The user will be able to click on the file and view it in a bigger size, the user will be able to download ad delete the file if the do not need it anymore.The video that the user clicks will play when she clicks on it will alow user to  be able to pause. The uploaded image can also be downloaded and  deleted by the user the image can e zooomed in to see the picture clearly
+                    <p>
+                     Whe the user clicks on the About me bio the user will e ale to read a brief io about myself
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-child green">
+                <h3>Option Section</h3>
+                <br />
+                <table style="width:100%">
+                    <tr>
+                        <td rowspan="2">
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+
+                                <div>
+                                    <table style="text-align:left">
+                                        <tr>
+                                            <td><label for="type">Document</label></td>
+                                            <td style="width:20px"><input type="radio" name="type" value="doc" id="type" /></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><label for="type">Image</label></td>
+                                            <td style="width:20px"><input type="radio" name="type" value="img" id="type" checked="checked" /></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><label for="type">Video</label></td>
+                                            <td style="width:20px"><input type="radio" name="type" value="vid" id="type" /></td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td style="width:20px"><input type="file" name="file" id="generate" value="No File selected..." /></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><label for="lists"></label></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td style="width:20px"><input type="submit" name="submit" id="Submit" value="Submit" /></td>
+
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            }
+                        </td>
+
+                    </tr>
+
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

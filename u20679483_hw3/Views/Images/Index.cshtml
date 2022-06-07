@@ -1,0 +1,70 @@
+﻿@model List<u20679483_hw3.Models.FileModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+
+<body>
+    <br />
+    <br />
+    <h1>Images of any file type</h1>
+    <h3>.........."Files/" folder</h3>
+    <br />
+    <br />
+    <div class="body-content" style="background-color:lightcyan">
+        <br />
+        <br />
+        <div class="grid-container">
+            @try
+            {
+                foreach (var item in Model)
+                {
+                    <div class="card grid-item" style="inset-inline:auto; width:60%">
+
+                        @if (!string.IsNullOrEmpty(item.Link))
+                        {
+
+
+                            <a data-toggle="modal" data-target="@String.Concat("#", item.id.ToString())"><img class="img-responsive" src="@Url.Content(item.Link)" width="160" height="160" /></a>
+                            <br />
+                            <p>@item.FileName</p>
+
+                            <script>
+                                $('#exampleModal').on('show.bs.modal', function (event) {
+                                    var button = $(event.relatedTarget)
+                                    var recipient = button.data('whatever')
+                                    var modal = $(this)
+                                    modal.find('.modal-title').text('New message to ' + recipient)
+                                    modal.find('.modal-body input').val(recipient)
+                                })
+                            </script>
+
+                            <div class="modal fade" id=@item.id.ToString() tabindex="-1" role="dialog" aria-labelledby=+@item.id.ToString() aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+
+                                        <img class="img-responsive" src="@Url.Content(item.Link)" width="2000" height="200" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                        <br />
+
+                        @Html.ActionLink("Download", "Download", new { id = item.id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+                    </div>
+
+                }
+            }
+            catch { }
+            
+
+            </div>
+        <br />
+        <br />
+    </div>
+</body>
